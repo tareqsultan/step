@@ -313,36 +313,11 @@ async function setupSample() {
   const sample = await getFile(audioCtx, filePath);
   return sample;
 } 
-  -----------------------
-    // create a buffer, plop in data, connect and play -> modify graph here if required
-function playSample2(audioContext, audioBuffer) {
-  const sampleSource = audioContext.createBufferSource();
-  sampleSource.buffer = audioBuffer;
-  sampleSource.playbackRate.setValueAtTime(playbackRate, audioCtx.currentTime);
-  sampleSource.connect(audioContext.destination)
-  sampleSource.start();
-  return sampleSource;
-}
-
-async function setupSample() {
-  const filePath = 'KIK_9.wav';
-  const filePath2 = 'CLAP.wav';
-  // Here we're `await`ing the async/promise that is `getFile`.
-  // To be able to use this keyword we need to be within an `async` function 
-  const sample = await getFile(audioCtx, filePath);
-  return sample;
-} 
-  ==========
-    async function setupSample2() {
-   
-  const filePath = 'CLAP.wav';
-  // Here we're `await`ing the async/promise that is `getFile`.
-  // To be able to use this keyword we need to be within an `async` function 
-  const sample2 = await getFile(audioCtx, filePath);
-  return sample2;
-}
-  --------------- 
-
+ 
+ 
+ 
+  
+    
 
 // Scheduling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let tempo = 60.0;
@@ -388,7 +363,7 @@ function scheduleNote(beatNumber, time) {
     playPulse()
   }
   if (pads[2].querySelectorAll('button')[currentNote].getAttribute('aria-checked') === 'true') {
-   playSample2(audioCtx,CLAP);
+  playNoise();
   }
   if (pads[3].querySelectorAll('button')[currentNote].getAttribute('aria-checked') === 'true') {
     playSample(audioCtx, KIK_9);
