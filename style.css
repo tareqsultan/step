@@ -161,12 +161,12 @@ h2 {
 }
 
 .pads button {
-  width: 5vw;
-  height: 5vw;
-  min-width: 26px;
-  min-height: 26px;
-  max-width: 66px;
-  max-height: 66px;
+  width: 2vw;
+  height: 2vw;
+  min-width: 10px;
+  min-height: 10px;
+  max-width: 40px;
+  max-height: 40px;
   margin: 0;
   padding: 0;
   background-color: var(--white);
