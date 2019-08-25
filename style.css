@@ -92,11 +92,11 @@ h2 {
 
 .controls-main label {
   justify-self: end;
-  padding-right: 10px;
+  padding-right: 5px;
 }
 
 .controls-main span {
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 /* play button */
