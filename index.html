@@ -15,7 +15,7 @@
 
   <div id="sequencer">
     <section class="controls-main">
-      <h1>ModemDN</h1>
+      <h1>Tareq ModemDN</h1>
       <label for="bpm">BPM</label>
       <input name="bpm" id="bpm" type="range" min="60" max="180" value="120" step="1" />
       <span id="bpmval">120</span>
@@ -203,15 +203,15 @@ bandControl.addEventListener('input', ev => {
   bandHz = Number(ev.target.value);
 }, false);
 
-function playNoise() {
-  const bufferSize = audioCtx.sampleRate * noiseDuration; // set the time of the note
-  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate); // create an empty buffer
-  const data = buffer.getChannelData(0); // get data
+function playNoise() (audioContext, audioBuffer) {
+  const sampleSource = audioContext.createBufferSource();
+  sampleSource.buffer = audioBuffer;
+  sampleSource.playbackRate.setValueAtTime(playbackRate, audioCtx.currentTime);
+  sampleSource.connect(audioContext.destination)
+  sampleSource.start();
+  return sampleSource;
+}
 
-  // fill the buffer with noise
-  for (let i = 0; i < bufferSize; i++) {
-    data[i] = Math.random() * 2 - 1;
-  }
 
   // create a buffer source for our created data
   const noise = audioCtx.createBufferSource();
