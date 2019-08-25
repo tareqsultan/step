@@ -307,8 +307,9 @@ function playSample(audioContext, audioBuffer) {
 
 async function setupSample() {
   const filePath = 'KIK_9.wav';
+  const filePath2 = 'CLAP.wav';
   // Here we're `await`ing the async/promise that is `getFile`.
-  // To be able to use this keyword we need to be within an `async` function
+  // To be able to use this keyword we need to be within an `async` function 
   const sample = await getFile(audioCtx, filePath);
   return sample;
 }
@@ -361,7 +362,7 @@ function scheduleNote(beatNumber, time) {
     playNoise()
   }
   if (pads[3].querySelectorAll('button')[currentNote].getAttribute('aria-checked') === 'true') {
-    playSample(audioCtx, dtmf);
+    playSample(audioCtx, KIK_9);
   }
 
 }
