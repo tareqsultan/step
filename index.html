@@ -314,7 +314,8 @@ async function setupSample() {
 }
 
 // Scheduling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let tempo = 240.0;
+// Scheduling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let tempo = 60.0;
 const bpmControl = document.querySelector('#bpm');
 const bpmValEl = document.querySelector('#bpmval');
 
@@ -329,7 +330,7 @@ const scheduleAheadTime = 0.1; // How far ahead to schedule audio (sec)
 let currentNote = 0; // The note we are currently playing
 let nextNoteTime = 0.0; // when the next note is due.
 function nextNote() {
-  const secondsPerBeat = 60.0 / tempo;
+  const secondsPerBeat = 240.0 / tempo;
 
   nextNoteTime += secondsPerBeat; // Add beat length to last beat time
 
@@ -339,12 +340,11 @@ function nextNote() {
     currentNote = 0;
   }
 
- 
+}
 
 // Create a queue for the notes that are to be played, with the current time that we want them to play:
 const notesInQueue = [];
-let KIK_9;
-   
+let dtmf;
 
 function scheduleNote(beatNumber, time) {
   // push the note on the queue, even if we're not playing.
@@ -358,10 +358,10 @@ function scheduleNote(beatNumber, time) {
     playPulse()
   }
   if (pads[2].querySelectorAll('button')[currentNote].getAttribute('aria-checked') === 'true') {
-  playNoise();
+    playNoise()
   }
   if (pads[3].querySelectorAll('button')[currentNote].getAttribute('aria-checked') === 'true') {
-    playSample(audioCtx,KIK_9); 
+    playSample(audioCtx, dtmf);
   }
 
 }
@@ -410,8 +410,8 @@ setupSample()
   .then((sample) => {
     loadingEl.style.display = 'none';
 
-    KIK_9 = sample; // to be used in our playSample function
-    
+    dtmf = sample; // to be used in our playSample function
+
     playButton.addEventListener('click', ev => {
       isPlaying = !isPlaying;
 
