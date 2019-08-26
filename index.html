@@ -288,7 +288,8 @@ async function getFile(audioContext, filepath) {
   const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
   return audioBuffer;
 }
-  let playbackRate = 1;
+
+let playbackRate = 1;
 const rateControl = document.querySelector('#rate');
 rateControl.addEventListener('input', ev => {
   playbackRate = Number(ev.target.value);
@@ -305,15 +306,13 @@ function playSample(audioContext, audioBuffer) {
 }
 
 async function setupSample() {
-  const filePath = 'KIK_9.wav';
-   
+  const filePath = 'KIK_9.mp3';
   // Here we're `await`ing the async/promise that is `getFile`.
-  // To be able to use this keyword we need to be within an `async` function 
-  const sample = await getFile(audioCtx,filePath);
-   
+  // To be able to use this keyword we need to be within an `async` function
+  const sample = await getFile(audioCtx, filePath);
   return sample;
-} 
- 
+}
+
 // Scheduling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let tempo = 240.0;
 const bpmControl = document.querySelector('#bpm');
