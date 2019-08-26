@@ -305,7 +305,7 @@ function playSample(audioContext, audioBuffer) {
 }
 
 async function setupSample() {
-  const filePath = 'KIK_9.wav ,CLAP.wav';
+  const filePath = 'KIK_9.wav';
    
   // Here we're `await`ing the async/promise that is `getFile`.
   // To be able to use this keyword we need to be within an `async` function 
@@ -345,7 +345,7 @@ function nextNote() {
 // Create a queue for the notes that are to be played, with the current time that we want them to play:
 const notesInQueue = [];
 let KIK_9;
-  let CLAP;
+  l 
 
 function scheduleNote(beatNumber, time) {
   // push the note on the queue, even if we're not playing.
